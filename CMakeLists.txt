@@ -14,6 +14,9 @@ if(SANITIZE)
   endif()
 endif()
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBUV REQUIRED IMPORTED_TARGET libuv)
+
 add_library(
   libwgobfs
 
@@ -23,6 +26,8 @@ add_library(
   src/packet.c
   src/wgobfs.h
 )
+target_include_directories(libwgobfs PRIVATE ${LIBUV_INCLUDE_DIRS})
+target_link_libraries(libwgobfs PkgConfig::LIBUV)
 
 # ==== Tests ====
 
