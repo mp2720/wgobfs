@@ -1,0 +1,1 @@
+Checks: 'bugprone-*,clang-analyzer-*,concurrency-*,perfomance-*,portability-*,-*-easily-swappable-parameters'
