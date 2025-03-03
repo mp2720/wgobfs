@@ -11,6 +11,8 @@ if(SANITIZE)
     message("sanitizers enabled")
     add_compile_options(-fsanitize=address,undefined,leak)
     add_link_options(-fsanitize=address,undefined,leak)
+  else()
+    message(WARNING "sanitizers are not enabled due to unsupported compiler")
   endif()
 endif()
 
